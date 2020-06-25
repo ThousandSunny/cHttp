@@ -3,14 +3,15 @@
 //
 
 #include "server.h"
+#include "test.h"
 
 int main() {
 
     // 1. start server
-    start_accept();
+    start_accept(SERVER_PORT);
     start_epoll();
 
-    // 2. start demo client
+    // 2. start demo Client
 
 
     return 0;
