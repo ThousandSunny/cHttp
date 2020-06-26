@@ -17,7 +17,7 @@
 #include <ctype.h>
 #include <stdio.h>
 
-#include <strings.h>
+#include <string>
 
 
 static void log(const std::string msg) {
