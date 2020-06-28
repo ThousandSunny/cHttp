@@ -4,12 +4,21 @@
 
 #include "HttpClient.h"
 
-Call *HttpClient::newCall(Request *request, HttpClient *client) {
+Call *HttpClient::newCall(Request *request) {
+    Call *call = new Call(request, this->dispatcher);
+    return call;
+}
 
-    Call call(request);
+void HttpClient::initDefaultConfig() {
+    this->dispatcher = Dispatcher();
+}
 
-    call.execute();
-    return &call;
+const Dispatcher &HttpClient::getDispatcher() const {
+    return dispatcher;
+}
+
+HttpClient::HttpClient() {
+    this->initDefaultConfig();
 }
 
 

@@ -5,7 +5,7 @@
 #include "Call.h"
 
 Response *Call::execute() {
-    return nullptr;
+    this->dispatcher.execute(*this->request);
 }
 
 void Call::enqueue(Callback resCallback) {
@@ -20,5 +20,7 @@ bool Call::isCanceled() {
     return false;
 }
 
-Call::Call(Request *request) : request(request) {
+Call::Call(Request *req, Dispatcher &dispatcher) : request(req), dispatcher(dispatcher) {
+
 }
+

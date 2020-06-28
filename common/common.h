@@ -7,7 +7,17 @@
 
 #include <iostream>
 #include <arpa/inet.h>
+
+#ifdef __linux__
 #include <sys/epoll.h>
+#elif __APPLE__
+
+#include <sys/types.h>
+#include <sys/event.h>
+#include <sys/time.h>
+
+#endif
+
 #include <unistd.h>
 #include <sys/socket.h>
 

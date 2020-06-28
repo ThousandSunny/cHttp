@@ -6,8 +6,10 @@
 #define CPPHTTP_CALLBACK_H
 
 
-#include "Call.h"
 #include "common.h"
+#include "Response.h"
+
+class Call;
 
 class Callback {
 public:

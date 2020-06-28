@@ -7,6 +7,7 @@
 
 #include "Request.h"
 #include "Call.h"
+#include "Dispatcher.h"
 
 /**
  *
@@ -17,9 +18,19 @@
  *
  */
 class HttpClient {
+private:
+    Dispatcher dispatcher;
+public:
+    const Dispatcher &getDispatcher() const;
+
+private:
+
+    void initDefaultConfig();
 
 public:
-    Call *newCall(Request *request, HttpClient *client);
+    HttpClient();
+
+    Call *newCall(Request *request);
 };
 
 

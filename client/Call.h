@@ -7,10 +7,12 @@
 
 #include "Response.h"
 #include "Callback.h"
+#include "Dispatcher.h"
 
 class Call {
 private:
     Request *request;
+    Dispatcher &dispatcher;
 public:
     Response *execute();
 
@@ -20,7 +22,7 @@ public:
 
     bool isCanceled();
 
-    Call(Request *pRequest);
+    Call(Request *pRequest, Dispatcher &dispatcher);
 };
 
 
