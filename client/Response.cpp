@@ -51,3 +51,5 @@ char *Response::getBody() const {
 void Response::setBody(char *body) {
     Response::body = body;
 }
+
+Response::Response(Request &request) : request(request) {}

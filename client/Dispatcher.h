@@ -6,6 +6,7 @@
 #define CPPHTTP_DISPATCHER_H
 
 #include "Request.h"
+#include "Response.h"
 
 /**
  * 请求分发器,线程池
@@ -14,7 +15,7 @@ class Dispatcher {
 
 public:
 
-    void execute(Request request);
+    Response *execute(Request request);
 };
 
 

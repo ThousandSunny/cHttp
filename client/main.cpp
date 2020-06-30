@@ -20,8 +20,8 @@ int main() {
     Url url("taobao", "/path", 8080);
     Request request(url);
     Call *call = httpClient.newCall(&request);
-    call->execute();
-
+    Response *res = call->execute();
+    std::cout << res->getCode();
 
     return 0;
 }

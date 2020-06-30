@@ -10,7 +10,10 @@
 
 class Response {
 private:
-    Request request;
+    Request &request;
+public:
+    Response(Request &request);
+
 private:
     std::string protocol;
     int code;

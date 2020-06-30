@@ -5,7 +5,7 @@
 #include "Call.h"
 
 Response *Call::execute() {
-    this->dispatcher.execute(*this->request);
+    return this->dispatcher.execute(*this->request);
 }
 
 void Call::enqueue(Callback resCallback) {

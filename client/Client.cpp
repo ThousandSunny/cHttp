@@ -3,7 +3,7 @@
 //
 
 #include "Client.h"
-
+#include <string.h>
 
 int Client::connect_server(std::string server, int port) {
     int sfd;
