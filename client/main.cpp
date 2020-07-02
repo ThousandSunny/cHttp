@@ -17,7 +17,7 @@ int main() {
 
 
     HttpClient httpClient;
-    Url url("taobao", "/path", 8080);
+    Url url("taobao.com", "/path", 8080);
     Request request(url);
     Call *call = httpClient.newCall(&request);
     Response *res = call->execute();
