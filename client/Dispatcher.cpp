@@ -21,10 +21,10 @@ std::vector<const char *> resolveHost(const char *host) {
     int error;
 
     // 初始化
-    bzero(&hints, sizeof(hints));
-    hints.ai_flags = AI_CANONNAME;
-    hints.ai_family = AF_INET;
-    hints.ai_socktype = IPPROTO_TCP;
+    bzero(&hints, sizeof(hints)); // 确保 struct 为空
+    hints.ai_flags = AI_PASSIVE; // 帮我填好我的 IP
+    hints.ai_family = AF_UNSPEC; // 不用管是 IPv4 或 IPv6
+    hints.ai_socktype = SOCK_STREAM; // TCP stream sockets
 
     // 解析host,结果以链表的形式保存在result中
     error = getaddrinfo(host, nullptr, &hints, &result);
