@@ -11,6 +11,11 @@
 class Url {
 private:
     std::string host;
+
+private:
+    std::string path;
+    int port;
+
 public:
     const std::string &getHost() const;
 
@@ -18,9 +23,8 @@ public:
 
     int getPort() const;
 
-private:
-    std::string path;
-    int port;
+    const std::string getQuery();
+
 public:
     Url(const std::string &host, const std::string &path, int port);
 

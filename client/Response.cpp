@@ -12,11 +12,11 @@ void Response::setRequest(const Request &request) {
     Response::request = request;
 }
 
-const std::string &Response::getAProtocol() const {
+const std::string &Response::getProtocol() const {
     return protocol;
 }
 
-void Response::setAProtocol(const std::string &aProtocol) {
+void Response::setProtocol(const std::string &aProtocol) {
     protocol = aProtocol;
 }
 
@@ -44,12 +44,34 @@ void Response::setHeaderLength(int headerLength) {
     Response::headerLength = headerLength;
 }
 
-char *Response::getBody() const {
+
+Response::Response(Request &request) : request(request) {
+}
+
+const std::string &Response::getMessage() const {
+    return message;
+}
+
+void Response::setMessage(const std::string &message) {
+    Response::message = message;
+}
+
+const Headers &Response::getHeadersMap() const {
+    return headersMap;
+}
+
+void Response::setHeadersMap(const Headers &headersMap) {
+    Response::headersMap = headersMap;
+}
+
+size_t Response::getBodSize() const {
+    return bodSize;
+}
+
+void Response::setBodSize(size_t bodSize) {
+    Response::bodSize = bodSize;
+}
+
+char *Response::getBody() {
     return body;
 }
-
-void Response::setBody(char *body) {
-    Response::body = body;
-}
-
-Response::Response(Request &request) : request(request) {}

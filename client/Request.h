@@ -16,8 +16,8 @@ private:
 
 private:
 
-    std::string *headers;
-    int headerLength;
+    std::string *headers = nullptr;
+    int headerLength = 0;
 
 private:
 

@@ -17,3 +17,12 @@ const std::string &Url::getPath() const {
 int Url::getPort() const {
     return port;
 }
+
+const std::string Url::getQuery() {
+    int queryStart = this->host.find_first_of('?');
+    unsigned long size = this->host.size();
+    if (queryStart < 0 || queryStart >= size) {
+        return "";
+    }
+    return this->host.substr(queryStart, size - queryStart);
+}

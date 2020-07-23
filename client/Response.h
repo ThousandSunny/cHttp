@@ -7,6 +7,8 @@
 
 
 #include "Request.h"
+#include "HttpCommon.h"
+#include "constant.h"
 
 class Response {
 private:
@@ -17,20 +19,42 @@ public:
 private:
     std::string protocol;
     int code;
+    std::string message;
+public:
+    const std::string &getMessage() const;
+
+    void setMessage(const std::string &message);
+
 private:
     std::string *headers;
     int headerLength;
+    Headers headersMap;
+public:
+    const Headers &getHeadersMap() const;
+
+    void setHeadersMap(const Headers &headersMap);
+
 private:
-    char *body;
+    char body[MAXBODYSIZE];
+public:
+    char *getBody();
+
+private:
+    size_t bodSize = 0;
+
+public:
+    size_t getBodSize() const;
+
+    void setBodSize(size_t bodSize);
 
 public:
     const Request &getRequest() const;
 
     void setRequest(const Request &request);
 
-    const std::string &getAProtocol() const;
+    const std::string &getProtocol() const;
 
-    void setAProtocol(const std::string &aProtocol);
+    void setProtocol(const std::string &aProtocol);
 
     int getCode() const;
 
@@ -43,10 +67,6 @@ public:
     int getHeaderLength() const;
 
     void setHeaderLength(int headerLength);
-
-    char *getBody() const;
-
-    void setBody(char *body);
 
 };
 
