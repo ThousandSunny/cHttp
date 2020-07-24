@@ -10,20 +10,22 @@
 #include "StatusLine.h"
 #include "HttpCommon.h"
 
-class Http1Codec : HttpCodec {
+namespace Http1 {
+    class Http1Codec : HttpCodec {
 
-public:
-    Http1Codec(int sockFd);
+    public:
+        Http1Codec(int sockFd);
 
-    void writeRequest(Request request) override;
+        void writeRequest(Request request) override;
 
-    StatusLine readHeaderLine() override;
+        StatusLine readHeaderLine() override;
 
-    void readBody(char *bodyBuffer, size_t *size) override;
+        void readBody(char *bodyBuffer, size_t *size) override;
 
-    Headers readHeaders() override;
+        Headers readHeaders() override;
 
-};
+    };
+}
 
 
 #endif //CPPHTTP_HTTP1CODEC_H
