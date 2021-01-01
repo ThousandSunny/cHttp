@@ -6,7 +6,7 @@
 #include "test.h"
 
 #include "HttpClient.h"
-
+#include "../third/log/loguru.h"
 int main() {
 
 //    Client client;
@@ -15,6 +15,8 @@ int main() {
 //    client.send_data(sfd, msg.data(), msg.size());
 //    client.on_socket_can_read(sfd);
 
+//    LOG_SCOPE_FUNCTION(INFO);
+    LOG_F(INFO, "Doing some stuff...");
 
     HttpClient httpClient;
     Url url("www.qq.com", "/", 8080);
@@ -41,6 +43,7 @@ int main() {
     const char *body = res->getBody();
     size_t bodSize = res->getBodSize();
     std::cout << std::string(body, bodSize) << std::endl;
+
 
     return 0;
 }
